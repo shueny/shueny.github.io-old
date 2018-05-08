@@ -102,18 +102,18 @@
 
 
 
-  <meta name="description" content="Hexo安裝過程中發生的大小問題  Hexo主題， _config中的部屬(deploy)設定  &amp;lt;a name=q1”&amp;gt;Hexo主題， _config中的部屬(deploy)設定1234deploy:  type: git  repository: git@github.com:shueny/shueny.github.io.git  branch: master">
-<meta name="keywords" content="github pages">
+  <meta name="description" content="Hexo安裝過程中發生的大小問題  Hexo主題， _config中的部屬(deploy)設定  &amp;lt;!--more--&amp;gt; Hexo主題， _config中的部屬(deploy)設定1234deploy:  type: git  repository: git@github.com:shueny/shueny.github.io.git  branch: master 原本在reposi">
+<meta name="keywords" content="github,github pages">
 <meta property="og:type" content="article">
 <meta property="og:title" content="安裝hexo發生的大小問題">
 <meta property="og:url" content="http://shueny.github.io/2018/05/08/安裝hexo發生的大小問題/index.html">
 <meta property="og:site_name" content="Shueny&#39;s notes">
-<meta property="og:description" content="Hexo安裝過程中發生的大小問題  Hexo主題， _config中的部屬(deploy)設定  &amp;lt;a name=q1”&amp;gt;Hexo主題， _config中的部屬(deploy)設定1234deploy:  type: git  repository: git@github.com:shueny/shueny.github.io.git  branch: master">
+<meta property="og:description" content="Hexo安裝過程中發生的大小問題  Hexo主題， _config中的部屬(deploy)設定  &amp;lt;!--more--&amp;gt; Hexo主題， _config中的部屬(deploy)設定1234deploy:  type: git  repository: git@github.com:shueny/shueny.github.io.git  branch: master 原本在reposi">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2018-05-08T06:47:18.000Z">
+<meta property="og:updated_time" content="2018-05-08T06:58:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安裝hexo發生的大小問題">
-<meta name="twitter:description" content="Hexo安裝過程中發生的大小問題  Hexo主題， _config中的部屬(deploy)設定  &amp;lt;a name=q1”&amp;gt;Hexo主題， _config中的部屬(deploy)設定1234deploy:  type: git  repository: git@github.com:shueny/shueny.github.io.git  branch: master">
+<meta name="twitter:description" content="Hexo安裝過程中發生的大小問題  Hexo主題， _config中的部屬(deploy)設定  &amp;lt;!--more--&amp;gt; Hexo主題， _config中的部屬(deploy)設定1234deploy:  type: git  repository: git@github.com:shueny/shueny.github.io.git  branch: master 原本在reposi">
 
 
 
@@ -336,7 +336,7 @@
                 
               
 
-              <time title="創建時間：2018-05-08 11:15:34 / 修改時間：14:47:18" itemprop="dateCreated datePublished" datetime="2018-05-08T11:15:34+08:00">2018-05-08</time>
+              <time title="創建時間：2018-05-08 11:15:34 / 修改時間：14:58:26" itemprop="dateCreated datePublished" datetime="2018-05-08T11:15:34+08:00">2018-05-08</time>
             
 
             
@@ -400,8 +400,11 @@
         <h1 id="Hexo安裝過程中發生的大小問題"><a href="#Hexo安裝過程中發生的大小問題" class="headerlink" title="Hexo安裝過程中發生的大小問題"></a>Hexo安裝過程中發生的大小問題</h1><ul>
 <li><a href="#q1"> Hexo主題， _config中的部屬(deploy)設定</a></li>
 </ul>
-<h2 id="lt-a-name-q1”-gt-Hexo主題，-config中的部屬-deploy-設定"><a href="#lt-a-name-q1”-gt-Hexo主題，-config中的部屬-deploy-設定" class="headerlink" title="&lt;a name=q1”&gt;Hexo主題， _config中的部屬(deploy)設定"></a>&lt;a name=q1”&gt;Hexo主題， _config中的部屬(deploy)設定</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: git@github.com:shueny/shueny.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
+<pre><code>&lt;!--more--&gt;
+</code></pre><h2 id="Hexo主題，-config中的部屬-deploy-設定"><a href="#Hexo主題，-config中的部屬-deploy-設定" class="headerlink" title="Hexo主題， _config中的部屬(deploy)設定"></a><a name="q1">Hexo主題， _config中的部屬(deploy)設定</a></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: git@github.com:shueny/shueny.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>原本在repository的地方輸入了「<a href="https://github.com/shueny/shueny.github.io.git」，" target="_blank" rel="noopener">https://github.com/shueny/shueny.github.io.git」，</a><br>但不知為何卻出現了「<strong>hexo fatal could not read username for ‘https //github.com’</strong>」的錯誤，<br>在網路上找了解法，似乎把repository的地方改成「<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:shueny/shueny.github.io.git」就好了。</p>
+<pre><code>* * *
+</code></pre>
       
     </div>
 
@@ -421,6 +424,8 @@
       
         <div class="post-tags">
           
+            <a href="/tags/github/" rel="tag"># github</a>
+          
             <a href="/tags/github-pages/" rel="tag"># github pages</a>
           
         </div>
@@ -434,8 +439,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/07/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2018/05/08/安裝Hexo-NexT-利用github空間，建置靜態網頁部落格(一)/" rel="next" title="安裝Hexo & NexT - 利用github空間，建置靜態網頁部落格(一)">
+                <i class="fa fa-chevron-left"></i> 安裝Hexo & NexT - 利用github空間，建置靜態網頁部落格(一)
               </a>
             
           </div>
@@ -443,10 +448,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/08/Hexo-install-s-Questions/" rel="prev" title="安裝hexo發生的大小問題">
-                安裝hexo發生的大小問題 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -520,7 +521,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">文章</span>
                   </a>
                 </div>
@@ -550,7 +551,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">標籤</span>
                   </a>
                 </div>
@@ -586,7 +589,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo安裝過程中發生的大小問題"><span class="nav-number">1.</span> <span class="nav-text">Hexo安裝過程中發生的大小問題</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-a-name-q1”-gt-Hexo主題，-config中的部屬-deploy-設定"><span class="nav-number">1.1.</span> <span class="nav-text">&lt;a name=q1”&gt;Hexo主題， _config中的部屬(deploy)設定</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo安裝過程中發生的大小問題"><span class="nav-number">1.</span> <span class="nav-text">Hexo安裝過程中發生的大小問題</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo主題，-config中的部屬-deploy-設定"><span class="nav-number">1.1.</span> <span class="nav-text">Hexo主題， _config中的部屬(deploy)設定</span></a></li></ol></li></ol></div>
             
 
           </div>
