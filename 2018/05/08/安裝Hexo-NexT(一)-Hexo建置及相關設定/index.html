@@ -103,13 +103,14 @@
 
 
   <meta name="description" content="以下設定檔皆為hexo中的「_config」 本站的基本設定在  # Site 中 1234567title: &amp;quot;Shueny&amp;apos;s notes&amp;quot; //本站名稱subtitle:  //子名稱description: //網站描述keywords: //設定一些keywordsauthor: &amp;quot;Shueny Wang&amp;quot; //編輯者的名稱langua">
+<meta name="keywords" content="github,github pages">
 <meta property="og:type" content="article">
 <meta property="og:title" content="安裝Hexo &amp; NexT(一)-Hexo建置及相關設定">
 <meta property="og:url" content="http://shueny.github.io/2018/05/08/安裝Hexo-NexT(一)-Hexo建置及相關設定/index.html">
 <meta property="og:site_name" content="Shueny&#39;s notes">
 <meta property="og:description" content="以下設定檔皆為hexo中的「_config」 本站的基本設定在  # Site 中 1234567title: &amp;quot;Shueny&amp;apos;s notes&amp;quot; //本站名稱subtitle:  //子名稱description: //網站描述keywords: //設定一些keywordsauthor: &amp;quot;Shueny Wang&amp;quot; //編輯者的名稱langua">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2018-05-08T09:29:48.000Z">
+<meta property="og:updated_time" content="2018-05-22T14:10:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安裝Hexo &amp; NexT(一)-Hexo建置及相關設定">
 <meta name="twitter:description" content="以下設定檔皆為hexo中的「_config」 本站的基本設定在  # Site 中 1234567title: &amp;quot;Shueny&amp;apos;s notes&amp;quot; //本站名稱subtitle:  //子名稱description: //網站描述keywords: //設定一些keywordsauthor: &amp;quot;Shueny Wang&amp;quot; //編輯者的名稱langua">
@@ -343,16 +344,46 @@
                 
               
 
-              <time title="創建時間：2018-05-08 07:21:48 / 修改時間：17:29:48" itemprop="dateCreated datePublished" datetime="2018-05-08T07:21:48+08:00">2018-05-08</time>
+              <time title="創建時間：2018-05-08 07:21:48" itemprop="dateCreated datePublished" datetime="2018-05-08T07:21:48+08:00">2018-05-08</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2018-05-22 22:10:18" itemprop="dateModified" datetime="2018-05-22T22:10:18+08:00">2018-05-22</time>
               
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/github/" itemprop="url" rel="index"><span itemprop="name">github</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -391,12 +422,12 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">title: &quot;Shueny&apos;s notes&quot; //本站名稱</span><br><span class="line">subtitle:  //子名稱</span><br><span class="line">description: //網站描述</span><br><span class="line">keywords: //設定一些keywords</span><br><span class="line">author: &quot;Shueny Wang&quot; //編輯者的名稱</span><br><span class="line">language: zh-TW //語系</span><br><span class="line">timezone: Asia/Taipei //文章建立者所使用的時區</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <hr>
-<h2 id="新增草稿-amp-發佈"><a href="#新增草稿-amp-發佈" class="headerlink" title="新增草稿 &amp; 發佈"></a>新增草稿 &amp; 發佈</h2><p>####建立草稿<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new draft &lt;title&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="新增草稿-amp-發佈"><a href="#新增草稿-amp-發佈" class="headerlink" title="新增草稿 &amp; 發佈"></a>新增草稿 &amp; 發佈</h2><h3 id="建立草稿"><a href="#建立草稿" class="headerlink" title="建立草稿"></a>建立草稿</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new draft &lt;title&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>   新文章將建立在 source/_drafts 目錄下，因此 hexo generate 並不會編譯到 public 目錄下，所以 hexo deploy 也不會署到 GitHub。</p>
 </blockquote>
-<h4 id="預覽草稿"><a href="#預覽草稿" class="headerlink" title="預覽草稿"></a>預覽草稿</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server --draft</span><br></pre></td></tr></table></figure>
-<h4 id="發佈草稿"><a href="#發佈草稿" class="headerlink" title="發佈草稿"></a>發佈草稿</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo publish &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="預覽草稿"><a href="#預覽草稿" class="headerlink" title="預覽草稿"></a>預覽草稿</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server --draft</span><br></pre></td></tr></table></figure>
+<h3 id="發佈草稿"><a href="#發佈草稿" class="headerlink" title="發佈草稿"></a>發佈草稿</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo publish &lt;filename&gt;</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="本站開啟草稿功能"><a href="#本站開啟草稿功能" class="headerlink" title="本站開啟草稿功能"></a>本站開啟草稿功能</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">render_drafts: true //將原本的false改為true</span><br></pre></td></tr></table></figure>
 <h2 id="開啟產生文章時，也跟產生跟文章名稱相同的資料夾"><a href="#開啟產生文章時，也跟產生跟文章名稱相同的資料夾" class="headerlink" title="開啟產生文章時，也跟產生跟文章名稱相同的資料夾"></a>開啟產生文章時，也跟產生跟文章名稱相同的資料夾</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: true //將原本的false改為true</span><br></pre></td></tr></table></figure>
@@ -416,6 +447,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/github/" rel="tag"># github</a>
+          
+            <a href="/tags/github-pages/" rel="tag"># github pages</a>
+          
+        </div>
       
 
       
@@ -580,7 +619,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本站的基本設定"><span class="nav-number">1.</span> <span class="nav-text">本站的基本設定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新增草稿-amp-發佈"><span class="nav-number">2.</span> <span class="nav-text">新增草稿 &amp; 發佈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#預覽草稿"><span class="nav-number">2.0.1.</span> <span class="nav-text">預覽草稿</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#發佈草稿"><span class="nav-number">2.0.2.</span> <span class="nav-text">發佈草稿</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本站開啟草稿功能"><span class="nav-number">3.</span> <span class="nav-text">本站開啟草稿功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#開啟產生文章時，也跟產生跟文章名稱相同的資料夾"><span class="nav-number">4.</span> <span class="nav-text">開啟產生文章時，也跟產生跟文章名稱相同的資料夾</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本站的基本設定"><span class="nav-number">1.</span> <span class="nav-text">本站的基本設定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新增草稿-amp-發佈"><span class="nav-number">2.</span> <span class="nav-text">新增草稿 &amp; 發佈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立草稿"><span class="nav-number">2.1.</span> <span class="nav-text">建立草稿</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#預覽草稿"><span class="nav-number">2.2.</span> <span class="nav-text">預覽草稿</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#發佈草稿"><span class="nav-number">2.3.</span> <span class="nav-text">發佈草稿</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本站開啟草稿功能"><span class="nav-number">3.</span> <span class="nav-text">本站開啟草稿功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#開啟產生文章時，也跟產生跟文章名稱相同的資料夾"><span class="nav-number">4.</span> <span class="nav-text">開啟產生文章時，也跟產生跟文章名稱相同的資料夾</span></a></li></ol></div>
             
 
           </div>
