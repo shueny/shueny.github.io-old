@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>安裝Hexo &amp; NexT(一)-Hexo建置及相關設定 | Shueny&#39;s note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="以下設定檔皆為hexo中的「_config」 本站的基本設定在  # Site 中 1234567title: &amp;quot;Shueny&amp;apos;s notes&amp;quot; //本站名稱subtitle:  //子名稱description: //網站描述keywords: //設定一些keywordsauthor: &amp;quot;Shueny Wang&amp;quot; //編輯者的名稱langua">
+<meta name="keywords" content="github,github pages">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安裝Hexo &amp; NexT(一)-Hexo建置及相關設定">
+<meta property="og:url" content="http://shueny.github.io/2018/05/08/安裝Hexo-NexT(一)-Hexo建置及相關設定/index.html">
+<meta property="og:site_name" content="Shueny&#39;s note">
+<meta property="og:description" content="以下設定檔皆為hexo中的「_config」 本站的基本設定在  # Site 中 1234567title: &amp;quot;Shueny&amp;apos;s notes&amp;quot; //本站名稱subtitle:  //子名稱description: //網站描述keywords: //設定一些keywordsauthor: &amp;quot;Shueny Wang&amp;quot; //編輯者的名稱langua">
+<meta property="og:locale" content="zh-TW">
+<meta property="og:updated_time" content="2018-05-22T14:10:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="安裝Hexo &amp; NexT(一)-Hexo建置及相關設定">
+<meta name="twitter:description" content="以下設定檔皆為hexo中的「_config」 本站的基本設定在  # Site 中 1234567title: &amp;quot;Shueny&amp;apos;s notes&amp;quot; //本站名稱subtitle:  //子名稱description: //網站描述keywords: //設定一些keywordsauthor: &amp;quot;Shueny Wang&amp;quot; //編輯者的名稱langua">
+  
+    <link rel="alternate" href="/atom.xml" title="Shueny&#39;s note" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Shueny&#39;s note</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">學習筆記</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://shueny.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-安裝Hexo-NexT(一)-Hexo建置及相關設定" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/08/安裝Hexo-NexT(一)-Hexo建置及相關設定/" class="article-date">
+  <time datetime="2018-05-07T23:21:48.000Z" itemprop="datePublished">2018-05-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/github/">github</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      安裝Hexo &amp; NexT(一)-Hexo建置及相關設定
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> 以下設定檔皆為hexo中的「_config」</strong></p>
+<h2 id="本站的基本設定"><a href="#本站的基本設定" class="headerlink" title="本站的基本設定"></a>本站的基本設定</h2><p>在 <strong> # Site </strong>中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">title: &quot;Shueny&apos;s notes&quot; //本站名稱</span><br><span class="line">subtitle:  //子名稱</span><br><span class="line">description: //網站描述</span><br><span class="line">keywords: //設定一些keywords</span><br><span class="line">author: &quot;Shueny Wang&quot; //編輯者的名稱</span><br><span class="line">language: zh-TW //語系</span><br><span class="line">timezone: Asia/Taipei //文章建立者所使用的時區</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<hr>
+<h2 id="新增草稿-amp-發佈"><a href="#新增草稿-amp-發佈" class="headerlink" title="新增草稿 &amp; 發佈"></a>新增草稿 &amp; 發佈</h2><h3 id="建立草稿"><a href="#建立草稿" class="headerlink" title="建立草稿"></a>建立草稿</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new draft &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   新文章將建立在 source/_drafts 目錄下，因此 hexo generate 並不會編譯到 public 目錄下，所以 hexo deploy 也不會署到 GitHub。</p>
+</blockquote>
+<h3 id="預覽草稿"><a href="#預覽草稿" class="headerlink" title="預覽草稿"></a>預覽草稿</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server --draft</span><br></pre></td></tr></table></figure>
+<h3 id="發佈草稿"><a href="#發佈草稿" class="headerlink" title="發佈草稿"></a>發佈草稿</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo publish &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="本站開啟草稿功能"><a href="#本站開啟草稿功能" class="headerlink" title="本站開啟草稿功能"></a>本站開啟草稿功能</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">render_drafts: true //將原本的false改為true</span><br></pre></td></tr></table></figure>
+<h2 id="開啟產生文章時，也跟產生跟文章名稱相同的資料夾"><a href="#開啟產生文章時，也跟產生跟文章名稱相同的資料夾" class="headerlink" title="開啟產生文章時，也跟產生跟文章名稱相同的資料夾"></a>開啟產生文章時，也跟產生跟文章名稱相同的資料夾</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: true //將原本的false改為true</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://shueny.github.io/2018/05/08/安裝Hexo-NexT(一)-Hexo建置及相關設定/" data-id="cjhipgo9e0007dkiuik0ve473" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github-pages/">github pages</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/05/08/安裝Hexo-NexT-(二)-NexT樣板設定/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          安裝Hexo-NexT-(二)-NexT樣板設定
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/05/07/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分類</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/github/">github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-pages/">github pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plugin/">plugin</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤雲</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/github/" style="font-size: 20px;">github</a> <a href="/tags/github-pages/" style="font-size: 20px;">github pages</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/plugin/" style="font-size: 10px;">plugin</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">彙整</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/22/Owl-Carousel-plugin-with-2-rows-and-2-columns/">Owl Carousel plugin with 2 rows and 2 columns</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/08/Github的大小問題/">Github的大小問題</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/08/安裝hexo發生的大小問題/">安裝hexo發生的大小問題</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/08/安裝Hexo-NexT-(二)-NexT樣板設定/">安裝Hexo-NexT-(二)-NexT樣板設定</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/08/安裝Hexo-NexT(一)-Hexo建置及相關設定/">安裝Hexo &amp; NexT(一)-Hexo建置及相關設定</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Shueny Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
