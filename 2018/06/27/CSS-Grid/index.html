@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-180x180.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/s-logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CSS,Grid," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言建構一個網頁拿到一個設計稿，要先從如何布局開始。對於布局，基本常用inline、inline-block、table 或是 float...等來配置。 幾年前也出現了Flexbox，而近期又出現了CSS Grid規範，讓我們更方便於排版布局(雖然還是有些瀏覽器較不支援)。  這次藉由 六角學院 所舉辦的 「The F2E - 前端修練精神時光屋」，跟著每周不同的任務來增進技術。 而這次剛好是使">
+<meta name="keywords" content="CSS,Grid">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS Grid">
+<meta property="og:url" content="http://shueny.github.io/2018/06/27/CSS-Grid/index.html">
+<meta property="og:site_name" content="Shueny&#39;s note">
+<meta property="og:description" content="前言建構一個網頁拿到一個設計稿，要先從如何布局開始。對於布局，基本常用inline、inline-block、table 或是 float...等來配置。 幾年前也出現了Flexbox，而近期又出現了CSS Grid規範，讓我們更方便於排版布局(雖然還是有些瀏覽器較不支援)。  這次藉由 六角學院 所舉辦的 「The F2E - 前端修練精神時光屋」，跟著每周不同的任務來增進技術。 而這次剛好是使">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2018-06-27T15:03:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS Grid">
+<meta name="twitter:description" content="前言建構一個網頁拿到一個設計稿，要先從如何布局開始。對於布局，基本常用inline、inline-block、table 或是 float...等來配置。 幾年前也出現了Flexbox，而近期又出現了CSS Grid規範，讓我們更方便於排版布局(雖然還是有些瀏覽器較不支援)。  這次藉由 六角學院 所舉辦的 「The F2E - 前端修練精神時光屋」，跟著每周不同的任務來增進技術。 而這次剛好是使">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://shueny.github.io/2018/06/27/CSS-Grid/"/>
+
+
+
+
+
+  <title>CSS Grid | Shueny's note</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shueny's note</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">學習筆記</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shueny.github.io/2018/06/27/CSS-Grid/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shueny Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shueny's note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">CSS Grid</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-06-27T09:45:40+08:00">
+                2018-06-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/27/CSS-Grid/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/27/CSS-Grid/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 閱讀次數
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><pre><code>建構一個網頁拿到一個設計稿，要先從如何布局開始。對於布局，基本常用inline、inline-block、table 或是 float...等來配置。
+幾年前也出現了Flexbox，而近期又出現了CSS Grid規範，讓我們更方便於排版布局(雖然還是有些瀏覽器較不支援)。
+
+這次藉由 六角學院 所舉辦的 「The F2E - 前端修練精神時光屋」，跟著每周不同的任務來增進技術。
+而這次剛好是使用CSS而這次剛好是使用CSS Grid，藉此順便把CSS Grid整理起來。
+(所以以下是我的個人學習筆記，想自學的也可以參考 &lt;a name=&quot;a1&quot;&gt;CSS Grid學習文件&lt;/a&gt;)
+</code></pre><blockquote>
+<p> <a href="https://www.facebook.com/groups/173311386703334/" target="_blank" rel="noopener">The F2E - 前端修練精神時光屋</a><br> 設計稿： <a href="https://hexschool.github.io/THE_F2E_Design/week4-product%20gallery/" target="_blank" rel="noopener">第四週 - Product Gallery</a></p>
+</blockquote>
+<a id="more"></a>
+<pre><code>{% asset_img css-grid-layout.jpg CSS Grid Layout %}
+</code></pre><h1 id="CSS-Grid-介紹"><a href="#CSS-Grid-介紹" class="headerlink" title="CSS Grid 介紹"></a>CSS Grid 介紹</h1><pre><code>CSS Grid是第一個專門為解決佈局問題而產生的系統，它是一個新的二維網格(row &amp; column)佈局系統，而Flexbox是一維的布局系統，兩者可以相輔相成，讓我們可以更快速的建造出有彈性的布局。
+</code></pre><h1 id="CSS-Grid-瀏覽器支援度"><a href="#CSS-Grid-瀏覽器支援度" class="headerlink" title="CSS Grid 瀏覽器支援度"></a>CSS Grid 瀏覽器支援度</h1><pre><code>{% asset_img css-grid-1.jpg CSS Grid Support %}
+
+由 [Can I use &apos;grid&apos;?](https://caniuse.com/#search=grid) 得知，現今 CSS Grid的支援度已較之前的多了。
+</code></pre><h1 id="CSS-Grid-使用"><a href="#CSS-Grid-使用" class="headerlink" title="CSS Grid 使用"></a>CSS Grid 使用</h1><h2 id="Grid-Container"><a href="#Grid-Container" class="headerlink" title="Grid Container"></a>Grid Container</h2><pre><code>在外層容器設置 display: grid or display:inline-grid。
+</code></pre><h2 id="Grid-Gap"><a href="#Grid-Gap" class="headerlink" title="Grid Gap"></a>Grid Gap</h2><pre><code>在容器中，直的物件稱column、衡的物件稱row；物件之間的空隙稱作gap，因此有grid-column-gap及grid-row-gap，兩者皆含的稱grid-gap。
+
+{% asset_img css-grid-2.jpg CSS Grid Container %}
+</code></pre><h2 id="Grid-Lines"><a href="#Grid-Lines" class="headerlink" title="Grid Lines"></a>Grid Lines</h2><pre><code>在columns之間的稱為columns lines；在rows之間的稱為rows lines。
+意思：此物件在容器中，佔了哪裡到哪裡的位置。
+
+{% asset_img css-grid-lines-1.jpg CSS Grid Lines %}
+</code></pre><blockquote>
+<p> <a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_grid_lines2" target="_blank" rel="noopener">上圖範例連結</a></p>
+</blockquote>
+<h1 id="CSS-Grid學習文件"><a href="#CSS-Grid學習文件" class="headerlink" title="CSS Grid學習文件"></a><a name="a1">CSS Grid學習文件</a></h1><ol>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout" target="_blank" rel="noopener">CSS Grid Layout</a></li>
+<li><a href="https://www.w3schools.com/css/css_grid.asp" target="_blank" rel="noopener">CSS Grid Layout Module</a></li>
+<li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">A Complete Guide to Grid</a></li>
+<li><a href="https://cssgrid.io/" target="_blank" rel="noopener">Wes Bos - CSS Grid</a></li>
+<li><a href="https://gridbyexample.com/learn/" target="_blank" rel="noopener">Grid by Example</a></li>
+<li><a href="https://wcc723.github.io/css/2017/03/22/css-grid-layout/" target="_blank" rel="noopener">CSS Grid 屬性介紹</a></li>
+<li><a href="https://blog.techbridge.cc/2017/02/03/css-grid-intro/" target="_blank" rel="noopener">與 CSS Grid 的第一次接觸</a></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+            <a href="/tags/Grid/" rel="tag"># Grid</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/25/Vue-js-介紹/" rel="next" title="Vue.js 介紹">
+                <i class="fa fa-chevron-left"></i> Vue.js 介紹
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/27/Bootstrap-Popover/" rel="prev" title="Bootstrap - Popover">
+                Bootstrap - Popover <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Shueny Wang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分類</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-Grid-介紹"><span class="nav-number">2.</span> <span class="nav-text">CSS Grid 介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-Grid-瀏覽器支援度"><span class="nav-number">3.</span> <span class="nav-text">CSS Grid 瀏覽器支援度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-Grid-使用"><span class="nav-number">4.</span> <span class="nav-text">CSS Grid 使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Grid-Container"><span class="nav-number">4.1.</span> <span class="nav-text">Grid Container</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Grid-Gap"><span class="nav-number">4.2.</span> <span class="nav-text">Grid Gap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Grid-Lines"><span class="nav-number">4.3.</span> <span class="nav-text">Grid Lines</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-Grid學習文件"><span class="nav-number">5.</span> <span class="nav-text">CSS Grid學習文件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shueny Wang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 強力驅動</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 訪問人數
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 總訪問量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://shueny-github.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://shueny.github.io/2018/06/27/CSS-Grid/';
+          this.page.identifier = '2018/06/27/CSS-Grid/';
+          this.page.title = 'CSS Grid';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://shueny-github.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
