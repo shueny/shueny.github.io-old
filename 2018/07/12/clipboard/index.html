@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="javascript,clipboard.js,plugin," />
+  <meta name="keywords" content="javascript,plugin,clipboard.js," />
 
 
 
@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="官網 Github 支援瀏覽器：Chrome 42+, Edge 12+, Firefox 41+, IE 9+, Safari 10+, Opera 29+">
-<meta name="keywords" content="javascript,clipboard.js,plugin">
+<meta name="description" content="不依賴Flash的複製內容到剪貼簿的小工具(原本是使用[Document.execCommand(“copy”)[https://developer.mozilla.org/zh-TW/docs/Web/API/Document/execCommand]但在IOS上一直出問題，因而換用此Plugin]   官網 Github 支援瀏覽器：Chrome 42+, Edge 12+, Firefox">
+<meta name="keywords" content="javascript,plugin,clipboard.js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="clipboard.js">
 <meta property="og:url" content="http://shueny.github.io/2018/07/12/clipboard/index.html">
 <meta property="og:site_name" content="Shueny&#39;s note">
-<meta property="og:description" content="官網 Github 支援瀏覽器：Chrome 42+, Edge 12+, Firefox 41+, IE 9+, Safari 10+, Opera 29+">
+<meta property="og:description" content="不依賴Flash的複製內容到剪貼簿的小工具(原本是使用[Document.execCommand(“copy”)[https://developer.mozilla.org/zh-TW/docs/Web/API/Document/execCommand]但在IOS上一直出問題，因而換用此Plugin]   官網 Github 支援瀏覽器：Chrome 42+, Edge 12+, Firefox">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="http://shueny.github.io/2018/07/12/clipboard/clipboard.jpg">
-<meta property="og:updated_time" content="2018-07-12T08:47:08.000Z">
+<meta property="og:updated_time" content="2018-07-12T10:11:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="clipboard.js">
-<meta name="twitter:description" content="官網 Github 支援瀏覽器：Chrome 42+, Edge 12+, Firefox 41+, IE 9+, Safari 10+, Opera 29+">
+<meta name="twitter:description" content="不依賴Flash的複製內容到剪貼簿的小工具(原本是使用[Document.execCommand(“copy”)[https://developer.mozilla.org/zh-TW/docs/Web/API/Document/execCommand]但在IOS上一直出問題，因而換用此Plugin]   官網 Github 支援瀏覽器：Chrome 42+, Edge 12+, Firefox">
 <meta name="twitter:image" content="http://shueny.github.io/2018/07/12/clipboard/clipboard.jpg">
 
 
@@ -371,10 +371,28 @@
 
       
         <img src="/2018/07/12/clipboard/clipboard.jpg" title="Clipboard">
+<p>不依賴Flash的複製內容到剪貼簿的小工具<br>(原本是使用[Document.execCommand(“copy”)[<a href="https://developer.mozilla.org/zh-TW/docs/Web/API/Document/execCommand]但在IOS上一直出問題，因而換用此Plugin]" target="_blank" rel="noopener">https://developer.mozilla.org/zh-TW/docs/Web/API/Document/execCommand]但在IOS上一直出問題，因而換用此Plugin]</a></p>
 <blockquote>
 <p> <a href="https://clipboardjs.com/" target="_blank" rel="noopener">官網</a><br> <a href="https://github.com/zenorocha/clipboard.js" target="_blank" rel="noopener">Github</a><br> 支援瀏覽器：Chrome 42+, Edge 12+, Firefox 41+, IE 9+, Safari 10+, Opera 29+ </p>
 </blockquote>
 <a id="more"></a>
+<h1 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h1><ol>
+<li><p><a href="https://cdnjs.com/libraries/clipboard.js" target="_blank" rel="noopener">CDN</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://www.npmjs.com/package/clipboard" target="_blank" rel="noopener">npm</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install clipboard --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://github.com/zenorocha/clipboard.js/archive/master.zip" target="_blank" rel="noopener">Download 直接下載檔案</a></p>
+</li>
+</ol>
+<h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用?"></a>如何使用?</h1><p>此plugin主要在點擊的element上加入設定好的data屬性，並指向要複製文字的位址(id)</p>
+<p></p><p data-height="265" data-theme-id="0" data-slug-hash="bjdwmr" data-default-tab="html,result" data-user="Shueny" data-embed-version="2" data-pen-title="#plugin - clipboard.js" class="codepen">See the Pen <a href="https://codepen.io/Shueny/pen/bjdwmr/" target="_blank" rel="noopener">#plugin - clipboard.js</a> by Shueny Wang (<a href="https://codepen.io/Shueny" target="_blank" rel="noopener">@Shueny</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+
+
+
 
       
     </div>
@@ -394,9 +412,9 @@
           
             <a href="/tags/javascript/" rel="tag"># javascript</a>
           
-            <a href="/tags/clipboard-js/" rel="tag"># clipboard.js</a>
-          
             <a href="/tags/plugin/" rel="tag"># plugin</a>
+          
+            <a href="/tags/clipboard-js/" rel="tag"># clipboard.js</a>
           
         </div>
       
@@ -479,8 +497,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -540,6 +567,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安裝"><span class="nav-number">1.</span> <span class="nav-text">安裝</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何使用"><span class="nav-number">2.</span> <span class="nav-text">如何使用?</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
