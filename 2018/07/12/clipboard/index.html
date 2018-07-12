@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="CSS,Grid," />
+  <meta name="keywords" content="javascript,clipboard.js,plugin," />
 
 
 
@@ -79,22 +79,20 @@
 
 
 
-<meta name="description" content="前言建構一個網頁拿到一個設計稿，要先從如何布局開始。對於布局，基本常用inline、inline-block、table 或是 float…等來配置。幾年前也出現了Flexbox，而近期又出現了CSS Grid規範，讓我們更方便於排版布局(雖然還是有些瀏覽器較不支援)。 這次藉由 六角學院 所舉辦的 「The F2E - 前端修練精神時光屋」，跟著每周不同的任務來增進技術。而這次剛好是使用CSS而">
-<meta name="keywords" content="CSS,Grid">
+<meta name="description" content="官網 Github 支援瀏覽器：Chrome 42+, Edge 12+, Firefox 41+, IE 9+, Safari 10+, Opera 29+">
+<meta name="keywords" content="javascript,clipboard.js,plugin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS Grid">
-<meta property="og:url" content="http://shueny.github.io/2018/06/27/CSS-Grid/index.html">
+<meta property="og:title" content="clipboard.js">
+<meta property="og:url" content="http://shueny.github.io/2018/07/12/clipboard/index.html">
 <meta property="og:site_name" content="Shueny&#39;s note">
-<meta property="og:description" content="前言建構一個網頁拿到一個設計稿，要先從如何布局開始。對於布局，基本常用inline、inline-block、table 或是 float…等來配置。幾年前也出現了Flexbox，而近期又出現了CSS Grid規範，讓我們更方便於排版布局(雖然還是有些瀏覽器較不支援)。 這次藉由 六角學院 所舉辦的 「The F2E - 前端修練精神時光屋」，跟著每周不同的任務來增進技術。而這次剛好是使用CSS而">
+<meta property="og:description" content="官網 Github 支援瀏覽器：Chrome 42+, Edge 12+, Firefox 41+, IE 9+, Safari 10+, Opera 29+">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:image" content="http://shueny.github.io/2018/06/27/CSS-Grid/css-grid-layout.jpg">
-<meta property="og:image" content="http://shueny.github.io/2018/06/27/CSS-Grid/css-grid-1.jpg">
-<meta property="og:image" content="http://shueny.github.io/2018/06/27/CSS-Grid/css-grid-lines-1.jpg">
-<meta property="og:updated_time" content="2018-07-05T14:39:32.000Z">
+<meta property="og:image" content="http://shueny.github.io/2018/07/12/clipboard/clipboard.jpg">
+<meta property="og:updated_time" content="2018-07-12T08:47:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS Grid">
-<meta name="twitter:description" content="前言建構一個網頁拿到一個設計稿，要先從如何布局開始。對於布局，基本常用inline、inline-block、table 或是 float…等來配置。幾年前也出現了Flexbox，而近期又出現了CSS Grid規範，讓我們更方便於排版布局(雖然還是有些瀏覽器較不支援)。 這次藉由 六角學院 所舉辦的 「The F2E - 前端修練精神時光屋」，跟著每周不同的任務來增進技術。而這次剛好是使用CSS而">
-<meta name="twitter:image" content="http://shueny.github.io/2018/06/27/CSS-Grid/css-grid-layout.jpg">
+<meta name="twitter:title" content="clipboard.js">
+<meta name="twitter:description" content="官網 Github 支援瀏覽器：Chrome 42+, Edge 12+, Firefox 41+, IE 9+, Safari 10+, Opera 29+">
+<meta name="twitter:image" content="http://shueny.github.io/2018/07/12/clipboard/clipboard.jpg">
 
 
 
@@ -124,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://shueny.github.io/2018/06/27/CSS-Grid/"/>
+  <link rel="canonical" href="http://shueny.github.io/2018/07/12/clipboard/"/>
 
 
 
 
 
-  <title>CSS Grid | Shueny's note</title>
+  <title>clipboard.js | Shueny's note</title>
   
 
 
@@ -267,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shueny.github.io/2018/06/27/CSS-Grid/">
+    <link itemprop="mainEntityOfPage" href="http://shueny.github.io/2018/07/12/clipboard/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Shueny Wang">
@@ -284,7 +282,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">CSS Grid</h2>
+          <h2 class="post-title" itemprop="name headline">clipboard.js</h2>
         
 
         <div class="post-meta">
@@ -296,8 +294,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-06-27T09:45:40+08:00">
-                2018-06-27
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-07-12T16:38:21+08:00">
+                2018-07-12
               </time>
             
 
@@ -319,8 +317,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
+                  <a href="/categories/plugin/" itemprop="url" rel="index">
+                    <span itemprop="name">plugin</span>
                   </a>
                 </span>
 
@@ -337,9 +335,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/27/CSS-Grid/#comments" itemprop="discussionUrl">
+                <a href="/2018/07/12/clipboard/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/27/CSS-Grid/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/07/12/clipboard/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -372,33 +370,11 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>建構一個網頁拿到一個設計稿，要先從如何布局開始。對於布局，基本常用inline、inline-block、table 或是 float…等來配置。<br>幾年前也出現了Flexbox，而近期又出現了CSS Grid規範，讓我們更方便於排版布局(雖然還是有些瀏覽器較不支援)。</p>
-<p>這次藉由 六角學院 所舉辦的 「The F2E - 前端修練精神時光屋」，跟著每周不同的任務來增進技術。<br>而這次剛好是使用CSS而這次剛好是使用CSS Grid，藉此順便把CSS Grid整理起來。<br>(所以以下是我的個人學習筆記，想自學的也可以參考 <a name="a1">CSS Grid學習文件</a>)</p>
+        <img src="/2018/07/12/clipboard/clipboard.jpg" title="Clipboard">
 <blockquote>
-<p> <a href="https://www.facebook.com/groups/173311386703334/" target="_blank" rel="noopener">The F2E - 前端修練精神時光屋</a><br> 設計稿： <a href="https://hexschool.github.io/THE_F2E_Design/week4-product%20gallery/" target="_blank" rel="noopener">第四週 - Product Gallery</a></p>
+<p> <a href="https://clipboardjs.com/" target="_blank" rel="noopener">官網</a><br> <a href="https://github.com/zenorocha/clipboard.js" target="_blank" rel="noopener">Github</a><br> 支援瀏覽器：Chrome 42+, Edge 12+, Firefox 41+, IE 9+, Safari 10+, Opera 29+ </p>
 </blockquote>
 <a id="more"></a>
-<img src="/2018/06/27/CSS-Grid/css-grid-layout.jpg" title="CSS_Grid_Layout">
-<h1 id="CSS-Grid-介紹"><a href="#CSS-Grid-介紹" class="headerlink" title="CSS Grid 介紹"></a>CSS Grid 介紹</h1><p>CSS Grid是第一個專門為解決佈局問題而產生的系統，它是一個新的二維網格(row &amp; column)佈局系統，而Flexbox是一維的布局系統，兩者可以相輔相成，讓我們可以更快速的建造出有彈性的布局。</p>
-<h1 id="CSS-Grid-瀏覽器支援度"><a href="#CSS-Grid-瀏覽器支援度" class="headerlink" title="CSS Grid 瀏覽器支援度"></a>CSS Grid 瀏覽器支援度</h1><img src="/2018/06/27/CSS-Grid/css-grid-1.jpg" title="CSS_Grid_Support">
-<p>由 <a href="https://caniuse.com/#search=grid" target="_blank" rel="noopener">Can I use ‘grid’?</a> 得知，現今 CSS Grid的支援度已較之前的多了。</p>
-<h1 id="CSS-Grid-使用"><a href="#CSS-Grid-使用" class="headerlink" title="CSS Grid 使用"></a>CSS Grid 使用</h1><h2 id="Grid-Container"><a href="#Grid-Container" class="headerlink" title="Grid Container"></a>Grid Container</h2><p>在外層容器設置 display: grid or display:inline-grid。</p>
-<h2 id="Grid-Gap"><a href="#Grid-Gap" class="headerlink" title="Grid Gap"></a>Grid Gap</h2><p>在容器中，直的物件稱column、衡的物件稱row；物件之間的空隙稱作gap，因此有grid-column-gap及grid-row-gap，兩者皆含的稱grid-gap。</p>
-<pre><code>{% asset_img css-grid-2.jpg CSS Grid Container %}
-</code></pre><h2 id="Grid-Lines"><a href="#Grid-Lines" class="headerlink" title="Grid Lines"></a>Grid Lines</h2><p>在columns之間的稱為columns lines；在rows之間的稱為rows lines。<br>意思：此物件在容器中，佔了哪裡到哪裡的位置。</p>
-<img src="/2018/06/27/CSS-Grid/css-grid-lines-1.jpg" title="CSS_Grid_Lines">
-<blockquote>
-<p> <a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_grid_lines2" target="_blank" rel="noopener">上圖範例連結</a></p>
-</blockquote>
-<h1 id="CSS-Grid學習文件"><a href="#CSS-Grid學習文件" class="headerlink" title="CSS Grid學習文件"></a><a name="a1">CSS Grid學習文件</a></h1><ol>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout" target="_blank" rel="noopener">CSS Grid Layout</a></li>
-<li><a href="https://www.w3schools.com/css/css_grid.asp" target="_blank" rel="noopener">CSS Grid Layout Module</a></li>
-<li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">A Complete Guide to Grid</a></li>
-<li><a href="https://cssgrid.io/" target="_blank" rel="noopener">Wes Bos - CSS Grid</a></li>
-<li><a href="https://gridbyexample.com/learn/" target="_blank" rel="noopener">Grid by Example</a></li>
-<li><a href="https://wcc723.github.io/css/2017/03/22/css-grid-layout/" target="_blank" rel="noopener">CSS Grid 屬性介紹</a></li>
-<li><a href="https://blog.techbridge.cc/2017/02/03/css-grid-intro/" target="_blank" rel="noopener">與 CSS Grid 的第一次接觸</a></li>
-</ol>
 
       
     </div>
@@ -416,9 +392,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
           
-            <a href="/tags/Grid/" rel="tag"># Grid</a>
+            <a href="/tags/clipboard-js/" rel="tag"># clipboard.js</a>
+          
+            <a href="/tags/plugin/" rel="tag"># plugin</a>
           
         </div>
       
@@ -431,8 +409,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/25/Vue-js-介紹/" rel="next" title="Vue.js 介紹">
-                <i class="fa fa-chevron-left"></i> Vue.js 介紹
+              <a href="/2018/06/27/Bootstrap-Popover/" rel="next" title="Bootstrap - Popover">
+                <i class="fa fa-chevron-left"></i> Bootstrap - Popover
               </a>
             
           </div>
@@ -440,10 +418,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/27/Bootstrap-Popover/" rel="prev" title="Bootstrap - Popover">
-                Bootstrap - Popover <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -505,17 +479,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目錄
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            本站概覽
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -575,22 +540,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-Grid-介紹"><span class="nav-number">2.</span> <span class="nav-text">CSS Grid 介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-Grid-瀏覽器支援度"><span class="nav-number">3.</span> <span class="nav-text">CSS Grid 瀏覽器支援度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-Grid-使用"><span class="nav-number">4.</span> <span class="nav-text">CSS Grid 使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Grid-Container"><span class="nav-number">4.1.</span> <span class="nav-text">Grid Container</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Grid-Gap"><span class="nav-number">4.2.</span> <span class="nav-text">Grid Gap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Grid-Lines"><span class="nav-number">4.3.</span> <span class="nav-text">Grid Lines</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-Grid學習文件"><span class="nav-number">5.</span> <span class="nav-text">CSS Grid學習文件</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -775,9 +724,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://shueny.github.io/2018/06/27/CSS-Grid/';
-          this.page.identifier = '2018/06/27/CSS-Grid/';
-          this.page.title = 'CSS Grid';
+          this.page.url = 'http://shueny.github.io/2018/07/12/clipboard/';
+          this.page.identifier = '2018/07/12/clipboard/';
+          this.page.title = 'clipboard.js';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://shueny-github.disqus.com/embed.js';
