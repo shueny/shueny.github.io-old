@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="javascript,plugin,jQuery," />
+  <meta name="keywords" content="javascript,jQuery,plugin," />
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="Waypoint.js 一個 jQuery 的監聽滾動套件 配合 CSS3 動畫做出非常細膩的效果，當頁面滑動到某個區域，某個區域的內容產生動畫效果 支援固定元素及無限滾動的功能   官網">
-<meta name="keywords" content="javascript,plugin,jQuery">
+<meta name="keywords" content="javascript,jQuery,plugin">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Plugin]Waypoint.js滾動監聽套件及遇到的問題">
 <meta property="og:url" content="http://shueny.github.io/2018/08/08/Plugin-Waypoint-js及遇到的問題/index.html">
@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://shueny.github.io/2018/08/08/Plugin-Waypoint-js及遇到的問題/waypoints-2.jpg">
 <meta property="og:image" content="http://shueny.github.io/2018/08/08/Plugin-Waypoint-js及遇到的問題/change_waypoints-1.jpg">
 <meta property="og:image" content="http://shueny.github.io/2018/08/08/Plugin-Waypoint-js及遇到的問題/change_waypoints-2.jpg">
-<meta property="og:updated_time" content="2018-08-08T08:44:24.000Z">
+<meta property="og:updated_time" content="2018-08-08T08:51:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Plugin]Waypoint.js滾動監聽套件及遇到的問題">
 <meta name="twitter:description" content="Waypoint.js 一個 jQuery 的監聽滾動套件 配合 CSS3 動畫做出非常細膩的效果，當頁面滑動到某個區域，某個區域的內容產生動畫效果 支援固定元素及無限滾動的功能   官網">
@@ -392,8 +392,11 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower install waypoints</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h1 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h1><p>頁面滾動至#waypoint 的物件時，<br>console.log 即顯示「Scrolled to waypoint!」的文字。</p>
+<p>頁面滾動至#waypoint 的物件時，<br>console.log 即顯示「Scrolled to waypoint!」的文字。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var waypoint = new Waypoint(&#123;</span><br><span class="line">  element: document.getElementById(&apos;waypoint&apos;),</span><br><span class="line">  handler: function(direction) &#123;</span><br><span class="line">    console.log(&apos;Scrolled to waypoint!&apos;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="範例-in-codepen"><a href="#範例-in-codepen" class="headerlink" title="範例 in codepen"></a>範例 in codepen</h1><blockquote>
+<p><a href="https://codepen.io/search/pens?q=waypoint&amp;page=1&amp;order=popularity&amp;depth=everything&amp;show_forks=false" target="_blank" rel="noopener">codepen 中的範例</a></p>
+</blockquote>
 <h1 id="遇到的問題"><a href="#遇到的問題" class="headerlink" title="遇到的問題"></a>遇到的問題</h1><h2 id="“Uncaught-TypeError-Cannot-read-property-‘top’-of-undefined”"><a href="#“Uncaught-TypeError-Cannot-read-property-‘top’-of-undefined”" class="headerlink" title="“Uncaught TypeError: Cannot read property ‘top’ of undefined”"></a>“Uncaught TypeError: Cannot read property ‘top’ of undefined”</h2><img src="/2018/08/08/Plugin-Waypoint-js及遇到的問題/waypoints-1.jpg">
 <img src="/2018/08/08/Plugin-Waypoint-js及遇到的問題/waypoints-2.jpg">
 <p>程式如上兩張圖，不知為何在 console.log 出現了「”Uncaught TypeError: Cannot read property ‘top’ of undefined」的錯誤。在 google 搜尋之下發現，也有人發生過一樣的問題~</p>
@@ -423,9 +426,9 @@
           
             <a href="/tags/javascript/" rel="tag"># javascript</a>
           
-            <a href="/tags/plugin/" rel="tag"># plugin</a>
-          
             <a href="/tags/jQuery/" rel="tag"># jQuery</a>
+          
+            <a href="/tags/plugin/" rel="tag"># plugin</a>
           
         </div>
       
@@ -588,7 +591,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Waypoint-js"><span class="nav-number">1.</span> <span class="nav-text">Waypoint.js</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用方式"><span class="nav-number">2.</span> <span class="nav-text">使用方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#範例"><span class="nav-number">3.</span> <span class="nav-text">範例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#遇到的問題"><span class="nav-number">4.</span> <span class="nav-text">遇到的問題</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#“Uncaught-TypeError-Cannot-read-property-‘top’-of-undefined”"><span class="nav-number">4.1.</span> <span class="nav-text">“Uncaught TypeError: Cannot read property ‘top’ of undefined”</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解法連結"><span class="nav-number">4.1.1.</span> <span class="nav-text">解法連結</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Waypoint-js"><span class="nav-number">1.</span> <span class="nav-text">Waypoint.js</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用方式"><span class="nav-number">2.</span> <span class="nav-text">使用方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#範例-in-codepen"><span class="nav-number">3.</span> <span class="nav-text">範例 in codepen</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#遇到的問題"><span class="nav-number">4.</span> <span class="nav-text">遇到的問題</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#“Uncaught-TypeError-Cannot-read-property-‘top’-of-undefined”"><span class="nav-number">4.1.</span> <span class="nav-text">“Uncaught TypeError: Cannot read property ‘top’ of undefined”</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解法連結"><span class="nav-number">4.1.1.</span> <span class="nav-text">解法連結</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
