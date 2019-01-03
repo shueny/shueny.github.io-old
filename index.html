@@ -365,12 +365,14 @@
 
       
         
-          <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><pre><code>用 GA 追蹤  meta name=&quot;category_collection_group_name&quot; 及 name=&quot;category_primary_group_name&quot; 的 content 
-</code></pre><h2 id="作法"><a href="#作法" class="headerlink" title="作法"></a>作法</h2><ul>
-<li>程式判斷 meta 是否有 name=”category_collection_group_name” 及 name=”category_primary_group_name” (只有第三層目錄的頁面才有這兩個 meta 值)</li>
-<li>使用 datalayer.push 把值送到 GTM 的 datalyer 層<ul>
+          <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>用 GA 追蹤  <code>meta name=&quot;category_collection_group_name&quot;</code> 及 <code>name=&quot;category_primary_group_name&quot;</code> 的 content </p>
+<h2 id="作法"><a href="#作法" class="headerlink" title="作法"></a>作法</h2><ul>
+<li>程式判斷 meta 是否有 <code>name=&quot;category_collection_group_name&quot;</code> 及 <code>name=&quot;category_primary_group_name&quot;</code> (只有第三層目錄的頁面才有這兩個 meta 值)</li>
+<li>使用 <code>datalayer.push</code> 把值送到 GTM 的 datalyer 層<ul>
 <li>設定 event 並幫 event 命名</li>
-<li>push 的變數名稱設與 meta name 的名稱相同，值即為此 meta 的 content <br><img src="meta_data.png" alt="meta-data"></li>
+<li>push 的變數名稱設與 meta name 的名稱相同，值即為此 meta 的 content <img src="/2019/01/03/gtm-datalayer/meta_data.png" title="meta-data">
+<img src="/2019/01/03/gtm-datalayer/datalayer_push.png" title="meta-data">
+</li>
 </ul>
 </li>
 </ul>

@@ -79,19 +79,20 @@
 
 
 
-<meta name="description" content="需求用 GA 追蹤  meta name=&amp;quot;category_collection_group_name&amp;quot; 及 name=&amp;quot;category_primary_group_name&amp;quot; 的 content  作法 程式判斷 meta 是否有 name=”category_collection_group_name” 及 name=”category_primar">
+<meta name="description" content="需求用 GA 追蹤  meta name=&amp;quot;category_collection_group_name&amp;quot; 及 name=&amp;quot;category_primary_group_name&amp;quot; 的 content  作法 程式判斷 meta 是否有 name=&amp;quot;category_collection_group_name&amp;quot; 及 name=&amp;quot;">
 <meta name="keywords" content="GTM,GA,Datalayer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GTM get Datalayer data to GA">
 <meta property="og:url" content="http://shueny.github.io/2019/01/03/gtm-datalayer/index.html">
 <meta property="og:site_name" content="Shueny&#39;s note">
-<meta property="og:description" content="需求用 GA 追蹤  meta name=&amp;quot;category_collection_group_name&amp;quot; 及 name=&amp;quot;category_primary_group_name&amp;quot; 的 content  作法 程式判斷 meta 是否有 name=”category_collection_group_name” 及 name=”category_primar">
+<meta property="og:description" content="需求用 GA 追蹤  meta name=&amp;quot;category_collection_group_name&amp;quot; 及 name=&amp;quot;category_primary_group_name&amp;quot; 的 content  作法 程式判斷 meta 是否有 name=&amp;quot;category_collection_group_name&amp;quot; 及 name=&amp;quot;">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="http://shueny.github.io/2019/01/03/gtm-datalayer/meta_data.png">
-<meta property="og:updated_time" content="2019-01-03T05:36:37.178Z">
+<meta property="og:image" content="http://shueny.github.io/2019/01/03/gtm-datalayer/datalayer_push.png">
+<meta property="og:updated_time" content="2019-01-03T05:43:56.002Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GTM get Datalayer data to GA">
-<meta name="twitter:description" content="需求用 GA 追蹤  meta name=&amp;quot;category_collection_group_name&amp;quot; 及 name=&amp;quot;category_primary_group_name&amp;quot; 的 content  作法 程式判斷 meta 是否有 name=”category_collection_group_name” 及 name=”category_primar">
+<meta name="twitter:description" content="需求用 GA 追蹤  meta name=&amp;quot;category_collection_group_name&amp;quot; 及 name=&amp;quot;category_primary_group_name&amp;quot; 的 content  作法 程式判斷 meta 是否有 name=&amp;quot;category_collection_group_name&amp;quot; 及 name=&amp;quot;">
 <meta name="twitter:image" content="http://shueny.github.io/2019/01/03/gtm-datalayer/meta_data.png">
 
 
@@ -370,12 +371,14 @@
       
 
       
-        <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><pre><code>用 GA 追蹤  meta name=&quot;category_collection_group_name&quot; 及 name=&quot;category_primary_group_name&quot; 的 content 
-</code></pre><h2 id="作法"><a href="#作法" class="headerlink" title="作法"></a>作法</h2><ul>
-<li>程式判斷 meta 是否有 name=”category_collection_group_name” 及 name=”category_primary_group_name” (只有第三層目錄的頁面才有這兩個 meta 值)</li>
-<li>使用 datalayer.push 把值送到 GTM 的 datalyer 層<ul>
+        <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>用 GA 追蹤  <code>meta name=&quot;category_collection_group_name&quot;</code> 及 <code>name=&quot;category_primary_group_name&quot;</code> 的 content </p>
+<h2 id="作法"><a href="#作法" class="headerlink" title="作法"></a>作法</h2><ul>
+<li>程式判斷 meta 是否有 <code>name=&quot;category_collection_group_name&quot;</code> 及 <code>name=&quot;category_primary_group_name&quot;</code> (只有第三層目錄的頁面才有這兩個 meta 值)</li>
+<li>使用 <code>datalayer.push</code> 把值送到 GTM 的 datalyer 層<ul>
 <li>設定 event 並幫 event 命名</li>
-<li>push 的變數名稱設與 meta name 的名稱相同，值即為此 meta 的 content <br><img src="meta_data.png" alt="meta-data"></li>
+<li>push 的變數名稱設與 meta name 的名稱相同，值即為此 meta 的 content <img src="/2019/01/03/gtm-datalayer/meta_data.png" title="meta-data">
+<img src="/2019/01/03/gtm-datalayer/datalayer_push.png" title="meta-data">
+</li>
 </ul>
 </li>
 </ul>
@@ -384,7 +387,7 @@
 <li>變數類型：資料層變數</li>
 <li>資料層變數名稱：顯示在 datalayer 上的變數名稱</li>
 <li>資料層版本：預設值</li>
-<li>有n個要取的變數就要設n個(例如：category_collection_group_name &amp; category_primary_group_name 就要設兩個變數)</li>
+<li>有n個要取的變數就要設n個(例如：<code>category_collection_group_name</code> &amp; <code>category_primary_group_name</code> 就要設兩個變數)</li>
 </ol>
 <h3 id="設定-代碼-Tags"><a href="#設定-代碼-Tags" class="headerlink" title="設定 代碼(Tags)"></a>設定 代碼(Tags)</h3><ol>
 <li>代碼類型：GA通用分析</li>
