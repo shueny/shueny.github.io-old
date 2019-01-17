@@ -82,14 +82,14 @@
 <meta name="description" content="問題商品往往會屬於多個 collections 之下，要如何取得該商品所屬哪些 collections，以便做延伸應用? 解法在 product-template (商品頁的樣版中，或是設定商品頁的檔案中) 使用 如此即可取出，此商品所屬在哪些 collections 之中。">
 <meta name="keywords" content="Shopify,shopify syntax,shopify product,shopify collection">
 <meta property="og:type" content="article">
-<meta property="og:title" content="product-in-which-collections">
+<meta property="og:title" content="shopify | 商品所屬哪些 collections? (product in which collections?)">
 <meta property="og:url" content="http://shueny.github.io/2019/01/17/product-in-which-collections/index.html">
 <meta property="og:site_name" content="Shueny&#39;s note">
 <meta property="og:description" content="問題商品往往會屬於多個 collections 之下，要如何取得該商品所屬哪些 collections，以便做延伸應用? 解法在 product-template (商品頁的樣版中，或是設定商品頁的檔案中) 使用 如此即可取出，此商品所屬在哪些 collections 之中。">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-01-17T03:47:57.087Z">
+<meta property="og:updated_time" content="2019-01-17T03:52:20.535Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="product-in-which-collections">
+<meta name="twitter:title" content="shopify | 商品所屬哪些 collections? (product in which collections?)">
 <meta name="twitter:description" content="問題商品往往會屬於多個 collections 之下，要如何取得該商品所屬哪些 collections，以便做延伸應用? 解法在 product-template (商品頁的樣版中，或是設定商品頁的檔案中) 使用 如此即可取出，此商品所屬在哪些 collections 之中。">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>product-in-which-collections | Shueny's note</title>
+  <title>shopify | 商品所屬哪些 collections? (product in which collections?) | Shueny's note</title>
   
 
 
@@ -280,7 +280,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">product-in-which-collections</h2>
+          <h2 class="post-title" itemprop="name headline">shopify | 商品所屬哪些 collections? (product in which collections?)</h2>
         
 
         <div class="post-meta">
@@ -372,7 +372,7 @@
 <h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>在 <code>product-template</code> (商品頁的樣版中，或是設定商品頁的檔案中) 使用 <code></code><br>如此即可取出，此商品所屬在哪些 collections 之中。</p>
 <a id="more"></a>
 <h2 id="應用"><a href="#應用" class="headerlink" title="應用"></a>應用</h2><ol>
-<li>有兩個活動(collections)，依照商品所屬在不同的活動(collections)之下，顯示不同的活動資訊在該商品頁中。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;% comment %&#125; 快速到貨 &#123;% endcomment %&#125;</span><br><span class="line">              &#123;% assign collection_list = &apos;&apos; %&#125;</span><br><span class="line">              &#123;% for collection in product.collections %&#125;</span><br><span class="line">                  &#123;% assign collection_list = collection_list | append: collection.id | downcase | append: &apos;,&apos; %&#125;</span><br><span class="line">              &#123;% endfor %&#125;   </span><br><span class="line">                &#123;% assign collection_list = collection_list %&#125;</span><br><span class="line">              &lt;!-- collections contains...&#123;&#123; collection_list &#125;&#125; --&gt;</span><br><span class="line">              &#123;% if collection_list contains 90224394353 %&#125;</span><br><span class="line">                  &#123;% assign cp_text = &apos;台北指定區3hr到貨OOOOOOOOOOOO&apos; %&#125;</span><br><span class="line">                  &lt;div class=&quot;campaign productCampaign&quot;&gt;</span><br><span class="line">                      &lt;a class=&quot;btn-link-primary productCampaign__btn&quot; href=&quot;&#123;&#123; shop.url &#125;&#125;/&#123;&#123; collection.url &#125;&#125;&quot;&gt;&lt;i class=&quot;cs_icon icon-shipping&quot;&gt;&lt;/i&gt;&#123;&#123; cp_text &#125;&#125;&lt;/a&gt;</span><br><span class="line">                  &lt;/div&gt;</span><br><span class="line">                  &#123;% break %&#125;</span><br><span class="line">              &#123;% elsif collection_list contains 56487051377 %&#125;</span><br><span class="line">                  &#123;% assign cp_text = &apos;全台指定區24hr到貨&apos; %&#125;</span><br><span class="line">                  &lt;div class=&quot;campaign productCampaign&quot;&gt;</span><br><span class="line">                      &lt;a class=&quot;btn-link-primary productCampaign__btn&quot; href=&quot;&#123;&#123; shop.url &#125;&#125;/&#123;&#123; collection.url &#125;&#125;&quot;&gt;&lt;i class=&quot;cs_icon icon-shipping&quot;&gt;&lt;/i&gt;&#123;&#123; cp_text &#125;&#125;&lt;/a&gt;</span><br><span class="line">                  &lt;/div&gt;</span><br><span class="line">                  &#123;% break %&#125;</span><br><span class="line">              &#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<li>有兩個活動(collections)，依照商品所屬在不同的活動(collections)之下，顯示不同的活動資訊在該商品頁中。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;% comment %&#125; 快速到貨 &#123;% endcomment %&#125;</span><br><span class="line">&#123;% assign collection_list = &apos;&apos; %&#125;</span><br><span class="line">&#123;% for collection in product.collections %&#125;</span><br><span class="line">    % assign collection_list = collection_list | append: collection.id | downcase | append: &apos;,&apos; %&#125;</span><br><span class="line">&#123;% endfor %&#125;   </span><br><span class="line">&#123;% assign collection_list = collection_list %&#125;</span><br><span class="line">&lt;!-- collections contains...&#123;&#123; collection_list &#125;&#125; --&gt;</span><br><span class="line">&#123;% if collection_list contains 90224394353 %&#125;</span><br><span class="line">    &#123;% assign cp_text = &apos;台北指定區3hr到貨OOOOOOOOOOOO&apos; %&#125;</span><br><span class="line">    &lt;div class=&quot;campaign productCampaign&quot;&gt;</span><br><span class="line">        &lt;a class=&quot;btn-link-primary productCampaign__btn&quot; href=&quot;&#123;&#123; shop.url &#125;&#125;/&#123;&#123; collection.url &#125;&#125;&quot;&gt;&lt;i class=&quot;cs_icon icon-shipping&quot;&gt;&lt;/i&gt;&#123;&#123; cp_text &#125;&#125;&lt;/a&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&#123;% elsif collection_list contains 56487051377 %&#125;</span><br><span class="line">    &#123;% assign cp_text = &apos;全台指定區24hr到貨&apos; %&#125;</span><br><span class="line">    &lt;div class=&quot;campaign productCampaign&quot;&gt;</span><br><span class="line">        &lt;a class=&quot;btn-link-primary productCampaign__btn&quot; href=&quot;&#123;&#123; shop.url &#125;&#125;/&#123;&#123; collection.url &#125;&#125;&quot;&gt;&lt;i class=&quot;cs_icon icon-shipping&quot;&gt;&lt;/i&gt;&#123;&#123; cp_text &#125;&#125;&lt;/a&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 
@@ -411,8 +411,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/03/gtm-datalayer/" rel="next" title="GTM get Datalayer data to GA">
-                <i class="fa fa-chevron-left"></i> GTM get Datalayer data to GA
+              <a href="/2019/01/15/shopify_index/" rel="next" title="shopify | index檔案在哪裡?">
+                <i class="fa fa-chevron-left"></i> shopify | index檔案在哪裡?
               </a>
             
           </div>
@@ -506,7 +506,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -528,7 +528,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -753,7 +753,7 @@
         var disqus_config = function () {
           this.page.url = 'http://shueny.github.io/2019/01/17/product-in-which-collections/';
           this.page.identifier = '2019/01/17/product-in-which-collections/';
-          this.page.title = 'product-in-which-collections';
+          this.page.title = 'shopify | 商品所屬哪些 collections? (product in which collections?)';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://shueny-github.disqus.com/embed.js';
