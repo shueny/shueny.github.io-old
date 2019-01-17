@@ -87,13 +87,10 @@
 <meta property="og:site_name" content="Shueny&#39;s note">
 <meta property="og:description" content="需求用 GA 追蹤  meta name=&amp;quot;category_collection_group_name&amp;quot; 及 name=&amp;quot;category_primary_group_name&amp;quot; 的 content  作法 程式判斷 meta 是否有 name=&amp;quot;category_collection_group_name&amp;quot; 及 name=&amp;quot;">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:image" content="http://shueny.github.io/2019/01/03/gtm-datalayer/meta_data.png">
-<meta property="og:image" content="http://shueny.github.io/2019/01/03/gtm-datalayer/datalayer_push.png">
-<meta property="og:updated_time" content="2019-01-03T05:43:56.002Z">
+<meta property="og:updated_time" content="2019-01-17T03:36:06.552Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GTM get Datalayer data to GA">
 <meta name="twitter:description" content="需求用 GA 追蹤  meta name=&amp;quot;category_collection_group_name&amp;quot; 及 name=&amp;quot;category_primary_group_name&amp;quot; 的 content  作法 程式判斷 meta 是否有 name=&amp;quot;category_collection_group_name&amp;quot; 及 name=&amp;quot;">
-<meta name="twitter:image" content="http://shueny.github.io/2019/01/03/gtm-datalayer/meta_data.png">
 
 
 
@@ -376,14 +373,14 @@
 <li>程式判斷 meta 是否有 <code>name=&quot;category_collection_group_name&quot;</code> 及 <code>name=&quot;category_primary_group_name&quot;</code> (只有第三層目錄的頁面才有這兩個 meta 值)</li>
 <li>使用 <code>datalayer.push</code> 把值送到 GTM 的 datalyer 層<ul>
 <li>設定 event 並幫 event 命名</li>
-<li>push 的變數名稱設與 meta name 的名稱相同，值即為此 meta 的 content <img src="/2019/01/03/gtm-datalayer/meta_data.png" title="meta-data">
-<img src="/2019/01/03/gtm-datalayer/datalayer_push.png" title="meta-data">
-</li>
+<li>push 的變數名稱設與 meta name 的名稱相同，值即為此 meta 的 content </li>
 </ul>
 </li>
 </ul>
-<a id="more"></a>
-<h2 id="GTM"><a href="#GTM" class="headerlink" title="GTM"></a>GTM</h2><h3 id="設定-變數-Variable"><a href="#設定-變數-Variable" class="headerlink" title="設定 變數(Variable)"></a>設定 變數(Variable)</h3><ol>
+<a id="more"></a>    
+<pre><code>{% asset_img meta_data.png meta-data %}
+{% asset_img datalayer_push.png meta-data %}
+</code></pre><h2 id="GTM"><a href="#GTM" class="headerlink" title="GTM"></a>GTM</h2><h3 id="設定-變數-Variable"><a href="#設定-變數-Variable" class="headerlink" title="設定 變數(Variable)"></a>設定 變數(Variable)</h3><ol>
 <li>變數類型：資料層變數</li>
 <li>資料層變數名稱：顯示在 datalayer 上的變數名稱</li>
 <li>資料層版本：預設值</li>
@@ -451,8 +448,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/15/shopify-index/" rel="prev" title="shopify-index檔案在哪裡?">
-                shopify-index檔案在哪裡? <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/17/product-in-which-collections/" rel="prev" title="product-in-which-collections">
+                product-in-which-collections <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -562,7 +559,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>

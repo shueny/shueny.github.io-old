@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Shopify,shopify syntax,shopify product,shopify collection," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="喜歡旅行及攝影的Web前端工程師，這裡為我的學習筆記，歡迎交流~">
+<meta name="description" content="問題商品往往會屬於多個 collections 之下，要如何取得該商品所屬哪些 collections，以便做延伸應用? 解法在 product-template (商品頁的樣版中，或是設定商品頁的檔案中) 使用 如此即可取出，此商品所屬在哪些 collections 之中。">
+<meta name="keywords" content="Shopify,shopify syntax,shopify product,shopify collection">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WesBos_ReactnGraphQL">
-<meta property="og:url" content="http://shueny.github.io/2018/10/22/WesBos-ReactnGraphQL/index.html">
+<meta property="og:title" content="product-in-which-collections">
+<meta property="og:url" content="http://shueny.github.io/2019/01/17/product-in-which-collections/index.html">
 <meta property="og:site_name" content="Shueny&#39;s note">
-<meta property="og:description" content="喜歡旅行及攝影的Web前端工程師，這裡為我的學習筆記，歡迎交流~">
+<meta property="og:description" content="問題商品往往會屬於多個 collections 之下，要如何取得該商品所屬哪些 collections，以便做延伸應用? 解法在 product-template (商品頁的樣版中，或是設定商品頁的檔案中) 使用 如此即可取出，此商品所屬在哪些 collections 之中。">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2018-10-22T06:55:30.032Z">
+<meta property="og:updated_time" content="2019-01-17T03:47:57.087Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WesBos_ReactnGraphQL">
-<meta name="twitter:description" content="喜歡旅行及攝影的Web前端工程師，這裡為我的學習筆記，歡迎交流~">
+<meta name="twitter:title" content="product-in-which-collections">
+<meta name="twitter:description" content="問題商品往往會屬於多個 collections 之下，要如何取得該商品所屬哪些 collections，以便做延伸應用? 解法在 product-template (商品頁的樣版中，或是設定商品頁的檔案中) 使用 如此即可取出，此商品所屬在哪些 collections 之中。">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://shueny.github.io/2018/10/22/WesBos-ReactnGraphQL/"/>
+  <link rel="canonical" href="http://shueny.github.io/2019/01/17/product-in-which-collections/"/>
 
 
 
 
 
-  <title>WesBos_ReactnGraphQL | Shueny's note</title>
+  <title>product-in-which-collections | Shueny's note</title>
   
 
 
@@ -262,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shueny.github.io/2018/10/22/WesBos-ReactnGraphQL/">
+    <link itemprop="mainEntityOfPage" href="http://shueny.github.io/2019/01/17/product-in-which-collections/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Shueny Wang">
@@ -279,7 +280,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">WesBos_ReactnGraphQL</h2>
+          <h2 class="post-title" itemprop="name headline">product-in-which-collections</h2>
         
 
         <div class="post-meta">
@@ -291,8 +292,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-10-22T14:55:30+08:00">
-                2018-10-22
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-01-17T11:35:36+08:00">
+                2019-01-17
               </time>
             
 
@@ -302,6 +303,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Shopify/" itemprop="url" rel="index">
+                    <span itemprop="name">Shopify</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -310,9 +333,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/10/22/WesBos-ReactnGraphQL/#comments" itemprop="discussionUrl">
+                <a href="/2019/01/17/product-in-which-collections/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/10/22/WesBos-ReactnGraphQL/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2019/01/17/product-in-which-collections/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -345,7 +368,14 @@
       
 
       
-        
+        <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>商品往往會屬於多個 collections 之下，要如何取得該商品所屬哪些 collections，以便做延伸應用?</p>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>在 <code>product-template</code> (商品頁的樣版中，或是設定商品頁的檔案中) 使用 <code></code><br>如此即可取出，此商品所屬在哪些 collections 之中。</p>
+<a id="more"></a>
+<h2 id="應用"><a href="#應用" class="headerlink" title="應用"></a>應用</h2><ol>
+<li>有兩個活動(collections)，依照商品所屬在不同的活動(collections)之下，顯示不同的活動資訊在該商品頁中。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;% comment %&#125; 快速到貨 &#123;% endcomment %&#125;</span><br><span class="line">              &#123;% assign collection_list = &apos;&apos; %&#125;</span><br><span class="line">              &#123;% for collection in product.collections %&#125;</span><br><span class="line">                  &#123;% assign collection_list = collection_list | append: collection.id | downcase | append: &apos;,&apos; %&#125;</span><br><span class="line">              &#123;% endfor %&#125;   </span><br><span class="line">                &#123;% assign collection_list = collection_list %&#125;</span><br><span class="line">              &lt;!-- collections contains...&#123;&#123; collection_list &#125;&#125; --&gt;</span><br><span class="line">              &#123;% if collection_list contains 90224394353 %&#125;</span><br><span class="line">                  &#123;% assign cp_text = &apos;台北指定區3hr到貨OOOOOOOOOOOO&apos; %&#125;</span><br><span class="line">                  &lt;div class=&quot;campaign productCampaign&quot;&gt;</span><br><span class="line">                      &lt;a class=&quot;btn-link-primary productCampaign__btn&quot; href=&quot;&#123;&#123; shop.url &#125;&#125;/&#123;&#123; collection.url &#125;&#125;&quot;&gt;&lt;i class=&quot;cs_icon icon-shipping&quot;&gt;&lt;/i&gt;&#123;&#123; cp_text &#125;&#125;&lt;/a&gt;</span><br><span class="line">                  &lt;/div&gt;</span><br><span class="line">                  &#123;% break %&#125;</span><br><span class="line">              &#123;% elsif collection_list contains 56487051377 %&#125;</span><br><span class="line">                  &#123;% assign cp_text = &apos;全台指定區24hr到貨&apos; %&#125;</span><br><span class="line">                  &lt;div class=&quot;campaign productCampaign&quot;&gt;</span><br><span class="line">                      &lt;a class=&quot;btn-link-primary productCampaign__btn&quot; href=&quot;&#123;&#123; shop.url &#125;&#125;/&#123;&#123; collection.url &#125;&#125;&quot;&gt;&lt;i class=&quot;cs_icon icon-shipping&quot;&gt;&lt;/i&gt;&#123;&#123; cp_text &#125;&#125;&lt;/a&gt;</span><br><span class="line">                  &lt;/div&gt;</span><br><span class="line">                  &#123;% break %&#125;</span><br><span class="line">              &#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
       
     </div>
     
@@ -360,6 +390,18 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Shopify/" rel="tag"># Shopify</a>
+          
+            <a href="/tags/shopify-syntax/" rel="tag"># shopify syntax</a>
+          
+            <a href="/tags/shopify-product/" rel="tag"># shopify product</a>
+          
+            <a href="/tags/shopify-collection/" rel="tag"># shopify collection</a>
+          
+        </div>
+      
 
       
       
@@ -369,8 +411,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/22/Node-js/" rel="next" title="Next.js">
-                <i class="fa fa-chevron-left"></i> Next.js
+              <a href="/2019/01/03/gtm-datalayer/" rel="next" title="GTM get Datalayer data to GA">
+                <i class="fa fa-chevron-left"></i> GTM get Datalayer data to GA
               </a>
             
           </div>
@@ -378,10 +420,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/03/gtm-datalayer/" rel="prev" title="GTM get Datalayer data to GA">
-                GTM get Datalayer data to GA <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -443,8 +481,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -504,6 +551,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#問題"><span class="nav-number">1.</span> <span class="nav-text">問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解法"><span class="nav-number">2.</span> <span class="nav-text">解法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#應用"><span class="nav-number">3.</span> <span class="nav-text">應用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -688,9 +751,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://shueny.github.io/2018/10/22/WesBos-ReactnGraphQL/';
-          this.page.identifier = '2018/10/22/WesBos-ReactnGraphQL/';
-          this.page.title = 'WesBos_ReactnGraphQL';
+          this.page.url = 'http://shueny.github.io/2019/01/17/product-in-which-collections/';
+          this.page.identifier = '2019/01/17/product-in-which-collections/';
+          this.page.title = 'product-in-which-collections';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://shueny-github.disqus.com/embed.js';
