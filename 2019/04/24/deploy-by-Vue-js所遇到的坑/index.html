@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://shueny.github.io/2019/04/24/deploy-by-Vue-js所遇到的坑/error1_solve_one_element.jpg">
 <meta property="og:image" content="http://shueny.github.io/2019/04/24/deploy-by-Vue-js所遇到的坑/error2_key.png">
 <meta property="og:image" content="http://shueny.github.io/2019/04/24/deploy-by-Vue-js所遇到的坑/error2_solve_key.png">
-<meta property="og:updated_time" content="2019-04-29T06:29:22.364Z">
+<meta property="og:updated_time" content="2019-04-30T20:05:26.042Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Vue]使用Vue.js 開發時所遇到的問題">
 <meta name="twitter:description" content="紀錄一下用 Vue.js 開發時所遇到的問題">
@@ -394,6 +394,12 @@
 <h4 id="Unnecessarily-quoted-property-‘icon’-found-quote-props"><a href="#Unnecessarily-quoted-property-‘icon’-found-quote-props" class="headerlink" title="Unnecessarily quoted property ‘icon’ found (quote-props)"></a>Unnecessarily quoted property ‘icon’ found (quote-props)</h4><blockquote>
 <p><a href="https://eslint.org/docs/rules/quote-props" target="_blank" rel="noopener">require quotes around object literal property names (quote-props)</a><br><a href="http://eslint.cn/docs/rules/quote-props" target="_blank" rel="noopener">要求对象字面量属性名称使用引号</a></p>
 </blockquote>
+<h4 id="Missing-file-extension-“vue”-for-“XXXXXXXXX”"><a href="#Missing-file-extension-“vue”-for-“XXXXXXXXX”" class="headerlink" title="Missing file extension “vue” for “XXXXXXXXX”"></a>Missing file extension “vue” for “XXXXXXXXX”</h4><p>在 Vue CLI v3 中，要把 <code>@</code> 之後的路徑寫完全，不然就會有錯</p>
+<p><strong>修改前程式碼</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import Contact from &apos;@/components/Contact&apos;</span><br><span class="line">import Works from &apos;@/components/Works&apos;</span><br><span class="line">import Skills from &apos;@/components/Skills&apos;</span><br><span class="line">import Education from &apos;@/components/Education&apos;</span><br><span class="line">import SpecialExperiences from &apos;@/components/SpecialExperiences&apos;</span><br></pre></td></tr></table></figure>
+<p>把 <code>&#39;@/components/Contact&#39;</code> 中的 <code>Contact</code> 結尾處加上 <code>.vue</code> 錯誤即可修正</p>
+<p><strong>修改後程式碼</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import Contact from &apos;@/components/Contact.vue&apos;</span><br><span class="line">import Works from &apos;@/components/Works.vue&apos;</span><br><span class="line">import Skills from &apos;@/components/Skills.vue&apos;</span><br><span class="line">import Education from &apos;@/components/Education.vue&apos;</span><br><span class="line">import SpecialExperiences from &apos;@/components/SpecialExperiences.vue&apos;</span><br></pre></td></tr></table></figure></p>
+
 
       
     </div>
@@ -523,7 +529,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -534,7 +540,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -545,7 +551,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -578,7 +584,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Error"><span class="nav-number">1.</span> <span class="nav-text">[Error]</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Component-template-should-contain-exactly-one-root-element"><span class="nav-number">1.1.</span> <span class="nav-text">Component template should contain exactly one root element</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Avoid-using-non-primitive-value-as-key-use-string-number-value-instead"><span class="nav-number">1.2.</span> <span class="nav-text">Avoid using non-primitive value as key, use string/number value instead.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#“key”-is-a-reserved-attribute-and-cannot-be-used-as-component-prop"><span class="nav-number">1.3.</span> <span class="nav-text">“key” is a reserved attribute and cannot be used as component prop.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Unnecessarily-quoted-property-‘icon’-found-quote-props"><span class="nav-number">1.4.</span> <span class="nav-text">Unnecessarily quoted property ‘icon’ found (quote-props)</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Error"><span class="nav-number">1.</span> <span class="nav-text">[Error]</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Component-template-should-contain-exactly-one-root-element"><span class="nav-number">1.1.</span> <span class="nav-text">Component template should contain exactly one root element</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Avoid-using-non-primitive-value-as-key-use-string-number-value-instead"><span class="nav-number">1.2.</span> <span class="nav-text">Avoid using non-primitive value as key, use string/number value instead.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#“key”-is-a-reserved-attribute-and-cannot-be-used-as-component-prop"><span class="nav-number">1.3.</span> <span class="nav-text">“key” is a reserved attribute and cannot be used as component prop.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Unnecessarily-quoted-property-‘icon’-found-quote-props"><span class="nav-number">1.4.</span> <span class="nav-text">Unnecessarily quoted property ‘icon’ found (quote-props)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Missing-file-extension-“vue”-for-“XXXXXXXXX”"><span class="nav-number">1.5.</span> <span class="nav-text">Missing file extension “vue” for “XXXXXXXXX”</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -598,7 +604,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
