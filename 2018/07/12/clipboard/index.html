@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/s-logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"shueny.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="不依賴Flash的複製內容到剪貼簿的小工具原本是使用Document.execCommand(“copy”)但在IOS上一直出問題，因而換用此Plugin]   官網 Github 支援瀏覽器：Chrome 42+, Edge 12+, Firefox 41+, IE 9+, Safari 10+, Opera 29+">
+<meta name="keywords" content="javascript,plugin,clipboard.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="clipboard.js">
+<meta property="og:url" content="http://shueny.github.io/2018/07/12/clipboard/index.html">
+<meta property="og:site_name" content="Shueny&#39;s note">
+<meta property="og:description" content="不依賴Flash的複製內容到剪貼簿的小工具原本是使用Document.execCommand(“copy”)但在IOS上一直出問題，因而換用此Plugin]   官網 Github 支援瀏覽器：Chrome 42+, Edge 12+, Firefox 41+, IE 9+, Safari 10+, Opera 29+">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="http://shueny.github.io/2018/07/12/clipboard/clipboard.jpg">
+<meta property="og:updated_time" content="2018-07-12T14:36:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="clipboard.js">
+<meta name="twitter:description" content="不依賴Flash的複製內容到剪貼簿的小工具原本是使用Document.execCommand(“copy”)但在IOS上一直出問題，因而換用此Plugin]   官網 Github 支援瀏覽器：Chrome 42+, Edge 12+, Firefox 41+, IE 9+, Safari 10+, Opera 29+">
+<meta name="twitter:image" content="http://shueny.github.io/2018/07/12/clipboard/clipboard.jpg">
+
+<link rel="canonical" href="http://shueny.github.io/2018/07/12/clipboard/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-tw'
+  };
+</script>
+
+  <title>clipboard.js | Shueny's note</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Shueny's note</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">寫寫筆記，以免忘記</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Startseite</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>Über</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Schlagwörter</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Kategorien</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archiv</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-tw">
+    <link itemprop="mainEntityOfPage" href="http://shueny.github.io/2018/07/12/clipboard/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shueny Wang">
+      <meta itemprop="description" content="喜歡旅行及攝影的Web前端工程師，這裡為我的學習筆記，歡迎交流~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shueny's note">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          clipboard.js
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              <time title="Erstellt: 2018-07-12 16:38:21 / Geändert am: 22:36:10" itemprop="dateCreated datePublished" datetime="2018-07-12T16:38:21+08:00">2018-07-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/plugin/" itemprop="url" rel="index"><span itemprop="name">plugin</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="/2018/07/12/clipboard/clipboard.jpg" title="Clipboard">
+<p>不依賴Flash的複製內容到剪貼簿的小工具<br>原本是使用<a href="https://developer.mozilla.org/zh-TW/docs/Web/API/Document/execCommand" target="_blank" rel="noopener">Document.execCommand(“copy”)</a>但在IOS上一直出問題，因而換用此Plugin]</p>
+<blockquote>
+<p> <a href="https://clipboardjs.com/" target="_blank" rel="noopener">官網</a><br> <a href="https://github.com/zenorocha/clipboard.js" target="_blank" rel="noopener">Github</a><br> 支援瀏覽器：Chrome 42+, Edge 12+, Firefox 41+, IE 9+, Safari 10+, Opera 29+ </p>
+</blockquote>
+<a id="more"></a>
+<h1 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h1><ol>
+<li><p><a href="https://cdnjs.com/libraries/clipboard.js" target="_blank" rel="noopener">CDN</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://www.npmjs.com/package/clipboard" target="_blank" rel="noopener">npm</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install clipboard --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://github.com/zenorocha/clipboard.js/archive/master.zip" target="_blank" rel="noopener">Download 直接下載檔案</a></p>
+</li>
+</ol>
+<h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用?"></a>如何使用?</h1><p>如官網上的範例…</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;example&quot;&gt;</span><br><span class="line">  &lt;input id=&quot;foo&quot; value=&quot;https://github.com/zenorocha/clipboard.js.git&quot;&gt;</span><br><span class="line">  &lt;!-- Trigger --&gt;</span><br><span class="line">  &lt;button class=&quot;btn&quot;&gt;</span><br><span class="line">      &lt;i class=&quot;fa fa-clipboard&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;Copy to clipboard</span><br><span class="line">  &lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>此plugin主要在點擊的element上加入設定好的data屬性 – 「data-clipboard-target」</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;example&quot;&gt;</span><br><span class="line">  &lt;input id=&quot;foo&quot; value=&quot;https://github.com/zenorocha/clipboard.js.git&quot;&gt;</span><br><span class="line">  &lt;!-- Trigger --&gt;</span><br><span class="line">  &lt;button class=&quot;btn&quot; data-clipboard-target=&quot;&quot;&gt;</span><br><span class="line">      &lt;i class=&quot;fa fa-clipboard&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;Copy to clipboard</span><br><span class="line">  &lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>指向要複製文字的位址(id)</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;example&quot;&gt;</span><br><span class="line">  &lt;input id=&quot;foo&quot; value=&quot;https://github.com/zenorocha/clipboard.js.git&quot;&gt;</span><br><span class="line">  &lt;!-- Trigger --&gt;</span><br><span class="line">  &lt;button class=&quot;btn&quot; data-clipboard-target=&quot;#foo&quot;&gt;</span><br><span class="line">      &lt;i class=&quot;fa fa-clipboard&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;Copy to clipboard</span><br><span class="line">  &lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>若要點擊後將文字剪下的話，在點擊的button加上 <strong>data-clipboard-action=”cut”</strong></p>
+<ol start="3">
+<li><p>JS設定<br>只要加上以下這段語法，就可以點擊複製或剪下了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var clipboard = new ClipboardJS(&apos;.btn&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>其他 - 點擊後成功或失敗的訊息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">clipboard.on(&apos;success&apos;, function(e) &#123;</span><br><span class="line">    console.info(&apos;Action:&apos;, e.action);</span><br><span class="line">    console.info(&apos;Text:&apos;, e.text);</span><br><span class="line">    console.info(&apos;Trigger:&apos;, e.trigger);</span><br><span class="line"></span><br><span class="line">    e.clearSelection();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">clipboard.on(&apos;error&apos;, function(e) &#123;</span><br><span class="line">    console.error(&apos;Action:&apos;, e.action);</span><br><span class="line">    console.error(&apos;Trigger:&apos;, e.trigger);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="實作練習"><a href="#實作練習" class="headerlink" title="實作練習"></a>實作練習</h1><p></p><p data-height="400" data-theme-id="0" data-slug-hash="bjdwmr" data-default-tab="html,result" data-user="Shueny" data-embed-version="2" data-pen-title="#plugin - clipboard.js" class="codepen">See the Pen <a href="https://codepen.io/Shueny/pen/bjdwmr/" target="_blank" rel="noopener">#plugin - clipboard.js</a> by Shueny Wang (<a href="https://codepen.io/Shueny" target="_blank" rel="noopener">@Shueny</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/javascript/" rel="tag"># javascript</a>
+              <a href="/tags/plugin/" rel="tag"># plugin</a>
+              <a href="/tags/clipboard-js/" rel="tag"># clipboard.js</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/06/25/Vue-js-介紹/" rel="prev" title="Vue.js 介紹">
+      <i class="fa fa-chevron-left"></i> Vue.js 介紹
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/07/25/Vue-js-Moment-js/" rel="next" title="Vue.js + Moment.js">
+      Vue.js + Moment.js <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Inhaltsverzeichnis
+        </li>
+        <li class="sidebar-nav-overview">
+          Übersicht
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安裝"><span class="nav-number">1.</span> <span class="nav-text">安裝</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何使用"><span class="nav-number">2.</span> <span class="nav-text">如何使用?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#實作練習"><span class="nav-number">3.</span> <span class="nav-text">實作練習</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Shueny Wang</p>
+  <div class="site-description" itemprop="description">喜歡旅行及攝影的Web前端工程師，這裡為我的學習筆記，歡迎交流~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">Artikel</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">Kategorien</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-name">schlagwörter</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/shueny" title="GitHub → https://github.com/shueny" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:shuen29@gmail.com" title="E-Mail → mailto:shuen29@gmail.com" rel="noopener" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/shueny_wang" title="Instagram → https://instagram.com/shueny_wang" rel="noopener" target="_blank"><i class="instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shueny Wang</span>
+</div>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/s-logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"shueny.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="紀錄一下用 Vue.js 開發時所遇到的問題">
+<meta name="keywords" content="vue.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Vue]使用Vue.js 開發時所遇到的問題">
+<meta property="og:url" content="http://shueny.github.io/2019/04/24/deploy-by-Vue-js所遇到的坑/index.html">
+<meta property="og:site_name" content="Shueny&#39;s note">
+<meta property="og:description" content="紀錄一下用 Vue.js 開發時所遇到的問題">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="http://shueny.github.io/2019/04/24/deploy-by-Vue-js所遇到的坑/vue-problems.jpg">
+<meta property="og:image" content="http://shueny.github.io/2019/04/24/deploy-by-Vue-js所遇到的坑/error1_one_element.jpg">
+<meta property="og:image" content="http://shueny.github.io/2019/04/24/deploy-by-Vue-js所遇到的坑/error1_solve_one_element.jpg">
+<meta property="og:image" content="http://shueny.github.io/2019/04/24/deploy-by-Vue-js所遇到的坑/error2_key.png">
+<meta property="og:image" content="http://shueny.github.io/2019/04/24/deploy-by-Vue-js所遇到的坑/error2_solve_key.png">
+<meta property="og:updated_time" content="2019-04-30T20:05:26.042Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Vue]使用Vue.js 開發時所遇到的問題">
+<meta name="twitter:description" content="紀錄一下用 Vue.js 開發時所遇到的問題">
+<meta name="twitter:image" content="http://shueny.github.io/2019/04/24/deploy-by-Vue-js所遇到的坑/vue-problems.jpg">
+
+<link rel="canonical" href="http://shueny.github.io/2019/04/24/deploy-by-Vue-js所遇到的坑/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-tw'
+  };
+</script>
+
+  <title>[Vue]使用Vue.js 開發時所遇到的問題 | Shueny's note</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Shueny's note</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">寫寫筆記，以免忘記</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Startseite</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>Über</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Schlagwörter</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Kategorien</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archiv</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-tw">
+    <link itemprop="mainEntityOfPage" href="http://shueny.github.io/2019/04/24/deploy-by-Vue-js所遇到的坑/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shueny Wang">
+      <meta itemprop="description" content="喜歡旅行及攝影的Web前端工程師，這裡為我的學習筆記，歡迎交流~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shueny's note">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [Vue]使用Vue.js 開發時所遇到的問題
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2019-04-24 10:18:23" itemprop="dateCreated datePublished" datetime="2019-04-24T10:18:23+08:00">2019-04-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2019-05-01 04:05:26" itemprop="dateModified" datetime="2019-05-01T04:05:26+08:00">2019-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue-js/" itemprop="url" rel="index"><span itemprop="name">Vue.js</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="/2019/04/24/deploy-by-Vue-js所遇到的坑/vue-problems.jpg">
+<p>紀錄一下用 Vue.js 開發時所遇到的問題</p>
+<a id="more"></a>
+<h3 id="Error"><a href="#Error" class="headerlink" title="[Error]"></a>[Error]</h3><h4 id="Component-template-should-contain-exactly-one-root-element"><a href="#Component-template-should-contain-exactly-one-root-element" class="headerlink" title="Component template should contain exactly one root element"></a>Component template should contain exactly one root element</h4><p>要求每個 template 只能有一個根元素。<br>可以再最外層包一個 div 來解決這個問題。</p>
+<img src="/2019/04/24/deploy-by-Vue-js所遇到的坑/error1_one_element.jpg">
+<img src="/2019/04/24/deploy-by-Vue-js所遇到的坑/error1_solve_one_element.jpg">
+<h4 id="Avoid-using-non-primitive-value-as-key-use-string-number-value-instead"><a href="#Avoid-using-non-primitive-value-as-key-use-string-number-value-instead" class="headerlink" title="Avoid using non-primitive value as key, use string/number value instead."></a>Avoid using non-primitive value as key, use string/number value instead.</h4><p>這裡是指不要用物件或是數組作為 key，用 String 或 Value 作為 key。</p>
+<img src="/2019/04/24/deploy-by-Vue-js所遇到的坑/error2_key.png" title="錯誤修改前">
+<img src="/2019/04/24/deploy-by-Vue-js所遇到的坑/error2_solve_key.png" title="錯誤修改">
+<h4 id="“key”-is-a-reserved-attribute-and-cannot-be-used-as-component-prop"><a href="#“key”-is-a-reserved-attribute-and-cannot-be-used-as-component-prop" class="headerlink" title="“key” is a reserved attribute and cannot be used as component prop."></a>“key” is a reserved attribute and cannot be used as component prop.</h4><p>此為多處變量名稱與系統保留變量相同而發生衝突。<br>(解法是把名稱換掉就好了…)</p>
+<p>除此 <strong>“class”</strong> 也是一個 reserved attributed</p>
+<h4 id="Unnecessarily-quoted-property-‘icon’-found-quote-props"><a href="#Unnecessarily-quoted-property-‘icon’-found-quote-props" class="headerlink" title="Unnecessarily quoted property ‘icon’ found (quote-props)"></a>Unnecessarily quoted property ‘icon’ found (quote-props)</h4><blockquote>
+<p><a href="https://eslint.org/docs/rules/quote-props" target="_blank" rel="noopener">require quotes around object literal property names (quote-props)</a><br><a href="http://eslint.cn/docs/rules/quote-props" target="_blank" rel="noopener">要求对象字面量属性名称使用引号</a></p>
+</blockquote>
+<h4 id="Missing-file-extension-“vue”-for-“XXXXXXXXX”"><a href="#Missing-file-extension-“vue”-for-“XXXXXXXXX”" class="headerlink" title="Missing file extension “vue” for “XXXXXXXXX”"></a>Missing file extension “vue” for “XXXXXXXXX”</h4><p>在 Vue CLI v3 中，要把 <code>@</code> 之後的路徑寫完全，不然就會有錯</p>
+<p><strong>修改前程式碼</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import Contact from &apos;@/components/Contact&apos;</span><br><span class="line">import Works from &apos;@/components/Works&apos;</span><br><span class="line">import Skills from &apos;@/components/Skills&apos;</span><br><span class="line">import Education from &apos;@/components/Education&apos;</span><br><span class="line">import SpecialExperiences from &apos;@/components/SpecialExperiences&apos;</span><br></pre></td></tr></table></figure>
+<p>把 <code>&#39;@/components/Contact&#39;</code> 中的 <code>Contact</code> 結尾處加上 <code>.vue</code> 錯誤即可修正</p>
+<p><strong>修改後程式碼</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import Contact from &apos;@/components/Contact.vue&apos;</span><br><span class="line">import Works from &apos;@/components/Works.vue&apos;</span><br><span class="line">import Skills from &apos;@/components/Skills.vue&apos;</span><br><span class="line">import Education from &apos;@/components/Education.vue&apos;</span><br><span class="line">import SpecialExperiences from &apos;@/components/SpecialExperiences.vue&apos;</span><br></pre></td></tr></table></figure></p>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/vue-js/" rel="tag"># vue.js</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/04/23/Vue-Cli-v3-github-pages/" rel="prev" title="Vue Cli v3.0安裝/建置 + Bootstrap + SCSS + Github Page">
+      <i class="fa fa-chevron-left"></i> Vue Cli v3.0安裝/建置 + Bootstrap + SCSS + Github Page
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/04/28/vue-routerlink-a/" rel="next" title="[Vue] 連結 - 站內及站外">
+      [Vue] 連結 - 站內及站外 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Inhaltsverzeichnis
+        </li>
+        <li class="sidebar-nav-overview">
+          Übersicht
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Error"><span class="nav-number">1.</span> <span class="nav-text">[Error]</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Component-template-should-contain-exactly-one-root-element"><span class="nav-number">1.1.</span> <span class="nav-text">Component template should contain exactly one root element</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Avoid-using-non-primitive-value-as-key-use-string-number-value-instead"><span class="nav-number">1.2.</span> <span class="nav-text">Avoid using non-primitive value as key, use string/number value instead.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#“key”-is-a-reserved-attribute-and-cannot-be-used-as-component-prop"><span class="nav-number">1.3.</span> <span class="nav-text">“key” is a reserved attribute and cannot be used as component prop.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Unnecessarily-quoted-property-‘icon’-found-quote-props"><span class="nav-number">1.4.</span> <span class="nav-text">Unnecessarily quoted property ‘icon’ found (quote-props)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Missing-file-extension-“vue”-for-“XXXXXXXXX”"><span class="nav-number">1.5.</span> <span class="nav-text">Missing file extension “vue” for “XXXXXXXXX”</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Shueny Wang</p>
+  <div class="site-description" itemprop="description">喜歡旅行及攝影的Web前端工程師，這裡為我的學習筆記，歡迎交流~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">Artikel</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">Kategorien</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-name">schlagwörter</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/shueny" title="GitHub → https://github.com/shueny" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:shuen29@gmail.com" title="E-Mail → mailto:shuen29@gmail.com" rel="noopener" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/shueny_wang" title="Instagram → https://instagram.com/shueny_wang" rel="noopener" target="_blank"><i class="instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shueny Wang</span>
+</div>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
